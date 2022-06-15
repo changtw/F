@@ -30,6 +30,11 @@
         top: -10;
 
       }
+
+document.body.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+}, { passive: false });
+
     </style>
 </head>
 <body>
