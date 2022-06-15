@@ -31,9 +31,6 @@
 
       }
 
-document.body.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-}, { passive: false });
 
     </style>
 </head>
@@ -79,6 +76,11 @@ document.body.addEventListener('touchmove', (e) => {
 
     c1.ontouchmove = null; // 原本是onmousemove 
     }
+  
+  document.body.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+}, { passive: false });
+
 
   </script>
 </html>
