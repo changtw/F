@@ -44,13 +44,8 @@
   document.body.addEventListener('touchmove', (e) => {
   e.preventDefault();
 }, { passive: false });
-
-var ua = navigator.userAgent;
-var android = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1; // android
-var iOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios
-if(android==true){
   
-    var c1 = document.getElementById("c1");
+var c1 = document.getElementById("c1");
     var c2 = document.getElementById("c2");
     
     var ctx1 = c1.getContext("2d");
@@ -70,6 +65,13 @@ if(android==true){
     img2.onload = function(){
       ctx1.drawImage(this,0,0)
     }
+
+var ua = navigator.userAgent;
+var android = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1; // android
+var iOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios
+if(android==true){
+  
+    
     
     // 監聽canvas的onmousedown事件
       c1.touchstart = function(ev){ // 原本是onmousedown 
@@ -88,27 +90,6 @@ if(android==true){
     }
 
 }else(iOS==true){
-
-    var c1 = document.getElementById("c1");
-    var c2 = document.getElementById("c2");
-    
-    var ctx1 = c1.getContext("2d");
-    var ctx2 = c2.getContext("2d");
-    
-    
-    // 將完整履歷放到下層  canvas2
-    var imgs = new Image();
-    imgs.src = 'img/after.jpg';
-    imgs.onload = function(){
-      ctx2.drawImage(this,0,0)
-    }
-    
-    // 需要刮的履歷放在上層  canvas1
-    var img2 = new Image();
-    img2.src = 'img/before.jpg';
-    img2.onload = function(){
-      ctx1.drawImage(this,0,0)
-    }
     
     // 監聽canvas的onmousedown事件
       c1.ontouchstart = function(ev){ // 原本是onmousedown 
